@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+
+  <meta
+    name="description"
+    content="अपना नाम डालकर नमस्ते Good Morning greeting बनाएं और शेयर करें।"
+  />
+
+  <title>नमस्ते Good Morning Blast</title>
+
+  <style>
+    :root {
+      --orange: #e6530c;
+      --dark-orange: #992e00;
+      --green: #137b3a;
+      --blue: #1579ba;
+      --cream: #fff8dc;
+      --brown: #542000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #f28d1c;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      font-family: "Noto Sans Devanagari", "Mangal", Arial, sans-serif;
+      color: var(--brown);
+      background:
+        radial-gradient(circle at 50% 0%, #fff8ac 0%, #ffd367 25%, transparent 50%),
+        linear-gradient(145deg, #ef7315, #ffd86a 48%, #ee6811);
+    }
+
+    .app {
+      width: min(100%, 580px);
+      margin: 0 auto;
+      padding: 18px 14px 36px;
+    }
+
+    .heading {
+      margin: 0 0 14px;
+      color: #ffffff;
+      font-size: 19px;
+      font-weight: 900;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(92, 29, 0, 0.4);
+    }
+
+    .card {
+      overflow: hidden;
+      border: 4px solid #ffffff;
+      border-radius: 28px;
+      background: var(--cream);
+      box-shadow: 0 18px 44px rgba(88, 29, 0, 0.38);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 26px 15px 24px;
+      text-align: center;
+      background: linear-gradient(
+        180deg,
+        #6ed9f5 0%,
+        #b6e9dc 34%,
+        #ffe375 69%,
+        #ffab47 100%
+      );
+    }
+
+    .sun {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 13px;
+      border: 7px solid #ffd43c;
+      border-radius: 50%;
+      background: #fff7a5;
+      box-shadow:
+        0 0 0 13px rgba(255, 234, 105, 0.42),
+        0 0 38px rgba(255, 244, 115, 0.95);
+    }
+
+    .cloud {
+      position: absolute;
+      font-size: 48px;
+    }
+
+    .cloud-one {
+      top: 55px;
+      left: 17px;
+    }
+
+    .cloud-two {
+      top: 125px;
+      right: 14px;
+      font-size: 57px;
+    }
+
+    .namaste {
+      margin: 4px 0 9px;
+      color: #8b2800;
+      font-size: 32px;
+      font-weight: 900;
+      text-shadow: 1px 1px #ffe7a3;
+    }
+
+    .name-card {
+      display: inline-block;
+      max-width: 95%;
+      margin: 8px 0 12px;
+      padding: 10px 19px;
+      overflow-wrap: anywhere;
+      border-radius: 17px;
+      background: linear-gradient(135deg, #f16a10, #b83307);
+      color: #ffffff;
+      font-size: 25px;
+      font-weight: 900;
+      box-shadow: 0 7px 15px rgba(112, 37, 0, 0.32);
+    }
+
+    .morning {
+      margin: 4px 0 12px;
+      color: #762100;
+      font-family: Georgia, serif;
+      font-size: 43px;
+      font-weight: 900;
+      line-height: 1.08;
+      text-shadow: 1px 2px #fff4c9;
+    }
+
+    .flowers {
+      font-size: 28px;
+      letter-spacing: 4px;
+    }
+
+    .wish {
+      padding: 22px 18px;
+      color: #5b3200;
+      font-size: 18px;
+      font-weight: 650;
+      line-height: 1.82;
+      text-align: center;
+    }
+
+    .footer {
+      padding: 14px 10px;
+      background: #a23c00;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .controls {
+      padding: 20px 16px 22px;
+      background: #fffbed;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 8px;
+      color: #693300;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    #nameInput {
+      min-width: 0;
+      flex: 1;
+      padding: 13px;
+      border: 2px solid #efab49;
+      border-radius: 13px;
+      outline: none;
+      background: #ffffff;
+      color: #512000;
+      font-family: inherit;
+      font-size: 17px;
+    }
+
+    #nameInput:focus {
+      border-color: #dc5908;
+      box-shadow: 0 0 0 3px rgba(240, 139, 36, 0.2);
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .make-button,
+    .wide-button {
+      border-radius: 13px;
+      color: #ffffff;
+    }
+
+    .make-button {
+      padding: 12px 16px;
+      background: var(--green);
+      box-shadow: 0 4px #0b5525;
+    }
+
+    .wide-button {
+      width: 100%;
+      margin-top: 13px;
+      padding: 14px 13px;
+    }
+
+    .blast-button {
+      background: linear-gradient(135deg, #e95709, #bf3000);
+      box-shadow: 0 5px #852300;
+    }
+
+    .share-button {
+      background: linear-gradient(135deg, #1688cf, #1265a4);
+      box-shadow: 0 5px #074574;
+    }
+
+    button:active {
+      transform: translateY(3px);
+    }
+
+    .note {
+      margin: 14px 0 0;
+      color: #764300;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .creator {
+      margin: 16px 0 0;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(90, 34, 0, 0.38);
+    }
+
+    /* Full-screen emoji blast */
+    #blastLayer {
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .emoji {
+      position: absolute;
+      top: -14vh;
+      will-change: transform;
+      animation: fall var(--speed) cubic-bezier(0.2, 0.65, 0.25, 1) forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translate3d(0, -15vh, 0) rotate(0deg) scale(0.4);
+        opacity: 0;
+      }
+
+      8% {
+        opacity: 1;
+      }
+
+      100% {
+        transform:
+          translate3d(var(--side), 116vh, 0)
+          rotate(var(--turn))
+          scale(1.3);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .morning {
+        font-size: 36px;
+      }
+
+      .namaste {
+        font-size: 28px;
+      }
+
+      .name-card {
+        font-size: 22px;
+      }
+
+      .input-row {
+        flex-wrap: wrap;
+      }
+
+      #nameInput {
+        flex-basis: 100%;
+      }
+
+      .make-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="blastLayer"></div>
+
+  <main class="app">
+    <h1 class="heading">🙏 नमस्ते गुड मॉर्निंग ब्लास्ट 🙏</h1>
+
+    <section class="card">
+      <div class="hero">
+        <span class="cloud cloud-one">☁️</span>
+        <span class="cloud cloud-two">☁️</span>
+
+        <div class="sun"></div>
+
+        <div class="namaste">🙏 नमस्ते 🙏</div>
+
+        <div class="name-card" id="showName">
+          सुग्रीव पी एन राय
+        </div>
+
+        <div class="morning">Good Morning</div>
+
+        <div class="flowers">🌸 🌼 🌺 🌻 🌸</div>
+      </div>
+
+      <div class="wish">
+        ☀️ आपका आज का दिन सुख, शांति, स्वास्थ्य और सफलता से भरपूर रहे।
+        <br />
+        ईश्वर की कृपा आप और आपके परिवार पर सदैव बनी रहे। 🙏
+      </div>
+
+      <div class="footer">
+        शुभ प्रभात • सकारात्मक रहें • मुस्कुराते रहें
+      </div>
+
+      <div class="controls">
+        <label class="label" for="nameInput">
+          अपना नाम लिखकर Greeting बनाएं
+        </label>
+
+        <div class="input-row">
+          <input
+            id="nameInput"
+            type="text"
+            maxlength="45"
+            placeholder="जैसे: रमेश कुमार"
+          />
+
+          <button class="make-button" id="makeButton">
+            बनाएं
+          </button>
+        </div>
+
+        <button class="wide-button blast-button" id="blastButton">
+          🙏 नमस्ते इमोजी ब्लास्ट देखें
+        </button>
+
+        <button class="wide-button share-button" id="shareButton">
+          📤 अपना Greeting शेयर करें
+        </button>
+
+        <p class="note">
+          नाम लिखें → बनाएं दबाएं → इमोजी ब्लास्ट देखें → आगे शेयर करें।
+        </p>
+      </div>
+    </section>
+
+    <p class="creator">
+      बनाया गया: सुग्रीव पी एन राय
+    </p>
+  </main>
+
+  <script>
+    const DEFAULT_NAME = "सुग्रीव पी एन राय";
+
+    const nameInput = document.getElementById("nameInput");
+    const showName = document.getElementById("showName");
+    const makeButton = document.getElementById("makeButton");
+    const blastButton = document.getElementById("blastButton");
+    const shareButton = document.getElementById("shareButton");
+    const blastLayer = document.getElementById("blastLayer");
+
+    /* URL में ?name= से आने वाला नाम दिखाइए */
+    const searchParams = new URLSearchParams(window.location.search);
+    const nameFromLink = searchParams.get("name");
+
+    if (nameFromLink) {
+      nameInput.value = nameFromLink;
+      showName.textContent = nameFromLink;
+    }
+
+    function currentName() {
+      const typedName = nameInput.value.trim();
+
+      return typedName || DEFAULT_NAME;
+    }
+
+    function updateGreeting() {
+      const newName = currentName();
+
+      showName.textContent = newName;
+
+      /* नाम को share link में जोड़ें */
+      const pageUrl = new URL(window.location.href);
+
+      pageUrl.searchParams.set("name", newName);
+
+      window.history.replaceState({}, "", pageUrl.toString());
+    }
+
+    function namasteBlast() {
+      const emojis = [
+        "🙏",
+        "🌸",
+        "🌼",
+        "🌺",
+        "🌻",
+        "✨",
+        "🪷",
+        "🕉️",
+        "☀️",
+        "💛",
+        "🕊️",
+        "🎉"
+      ];
+
+      const emojiCount = 125;
+
+      for (let i = 0; i < emojiCount; i++) {
+        const emoji = document.createElement("span");
+
+        emoji.className = "emoji";
+
+        emoji.textContent =
+          emojis[Math.floor(Math.random() * emojis.length)];
+
+        emoji.style.left = Math.random() * 100 + "vw";
+
+        emoji.style.fontSize =
+          20 + Math.random() * 35 + "px";
+
+        emoji.style.setProperty(
+          "--speed",
+          2.1 + Math.random() * 2.6 + "s"
+        );
+
+        emoji.style.setProperty(
+          "--side",
+          -200 + Math.random() * 400 + "px"
+        );
+
+        emoji.style.setProperty(
+          "--turn",
+          -720 + Math.random() * 1440 + "deg"
+        );
+
+        emoji.style.animationDelay =
+          Math.random() * 0.75 + "s";
+
+        blastLayer.appendChild(emoji);
+
+        setTimeout(function () {
+          emoji.remove();
+        }, 6000);
+      }
+    }
+
+    function shareText() {
+      return (
+        "🙏 नमस्ते 🙏
+
+" +
+        currentName() +
+        " की ओर से आपको Good Morning! ☀️
+
+" +
+        "आपका आज का दिन सुख, शांति, स्वास्थ्य और सफलता से भरपूर रहे।
+" +
+        "ईश्वर की कृपा आप और आपके परिवार पर सदैव बनी रहे। 🙏
+
+" +
+        "अपना नाम डालें, नमस्ते इमोजी ब्लास्ट देखें और आगे शेयर करें:"
+      );
+    }
+
+    async function shareGreeting() {
+      updateGreeting();
+      namasteBlast();
+
+      const data = {
+        title: "नमस्ते Good Morning Blast",
+        text: shareText(),
+        url: window.location.href
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(data);
+        } else {
+          const whatsappUrl =
+            "https://wa.me/?text=" +
+            encodeURIComponent(
+              shareText() + "
+
+" + window.location.href
+            );
+
+          window.open(whatsappUrl, "_blank");
+        }
+      } catch (error) {
+        /* अगर कोई error हो तो WhatsApp में share text खोलें */
+        if (error.name !== "AbortError") {
+          const whatsappUrl =
+            "https://wa.me/?text=" +
+            encodeURIComponent(
+              shareText() + "
+
+" + window.location.href
+            );
+
+          window.open(whatsappUrl, "_blank");
+        }
+      }
+    }
+
+    makeButton.addEventListener("click", function () {
+      updateGreeting();
+      namasteBlast();
+    });
+
+    blastButton.addEventListener("click", function () {
+      namasteBlast();
+    });
+
+    shareButton.addEventListener("click", function () {
+      shareGreeting();
+    });
+
+    /* पेज खुलते ही इमोजी ब्लास्ट */
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        namasteBlast();
+      }, 350);
+    });
+  </script>
+</body>
+</html>
